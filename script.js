@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
-    // Apertura/chiusura del menu a comparsa
+    // Apertura/chiusura del menu a comparsa.
     menuBtn.addEventListener('click', () => {
       dropdownMenu.classList.toggle('active');
     });
