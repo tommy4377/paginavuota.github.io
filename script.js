@@ -96,6 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleDarkBtn.textContent = 'Toggle Dark Mode';
           }
         }
+        // Se la riga digitata è "fortnite"
+        else if (lowerCurrentLine === 'fortnite') {
+          e.preventDefault();
+          window.open('index2.html', '_blank');
+          const textAfter = textArea.value.substring(pos);
+          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
+          textArea.selectionStart = textArea.selectionEnd = lineStart;
+          updateCounts();
+        }
         // Se il titolo non è ancora stato impostato e la riga non è vuota, la usa come titolo
         else if (!titleSet && currentLine !== '') {
           e.preventDefault();
@@ -113,27 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
           textArea.selectionStart = textArea.selectionEnd = lineStart;
           updateCounts();
         }
-
         // Se la riga digitata è "rickroll"
         else if (lowerCurrentLine === 'rickroll') {
-                    e.preventDefault();
-                    window.open('https://youtu.be/dQw4w9WgXcQ', '_blank');
-                    const textAfter = textArea.value.substring(pos);
-                    textArea.value = textArea.value.substring(0, lineStart) + textAfter;
-                    textArea.selectionStart = textArea.selectionEnd = lineStart;
-                    updateCounts();
-                  }
+          e.preventDefault();
+          window.open('https://youtu.be/dQw4w9WgXcQ', '_blank');
+          const textAfter = textArea.value.substring(pos);
+          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
+          textArea.selectionStart = textArea.selectionEnd = lineStart;
+          updateCounts();
+        }
       }
-
-            // Se la riga digitata è "fortnite"
-    else if (lowerCurrentLine === 'fortnite') {
-      e.preventDefault();
-      window.open('index2.html', '_blank');
-      const textAfter = textArea.value.substring(pos);
-      textArea.value = textArea.value.substring(0, lineStart) + textAfter;
-      textArea.selectionStart = textArea.selectionEnd = lineStart;
-      updateCounts();
-    }
     });
   
     // Toggle dark mode tramite pulsante del menu
@@ -226,5 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.addEventListener('click', () => {
       dropdownMenu.classList.toggle('active');
     });
-  });
-  
+});
