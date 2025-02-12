@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Se la riga digitata è "fortnite"
         else if (lowerCurrentLine === 'fortnite') {
           e.preventDefault();
-          window.open('index2.html', '_blank');
+          window.open('https://tommy4377.github.io/fortnite.github.io/', '_blank');
           const textAfter = textArea.value.substring(pos);
           textArea.value = textArea.value.substring(0, lineStart) + textAfter;
           textArea.selectionStart = textArea.selectionEnd = lineStart;
