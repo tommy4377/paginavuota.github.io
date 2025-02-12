@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina Vuota</title>
+  <!-- Favicon per tutti i browser (Firefox, Chromium, Brave, ecc.) -->
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Controls: contiene il titolo dinamico e i pulsanti guida e menu -->
+  <div id="topControls">
+    <div id="pageTitle">Pagina Vuota</div>
+    <div class="control-buttons">
+      <button id="guideBtn" class="guide-btn">?</button>
+      <button id="menuBtn"><img src="icon.png" alt="Menu"></button>
+    </div>
+  </div>
+
+  <!-- Area di scrittura (occupante tutta la pagina) -->
+  <textarea id="textArea" placeholder="Inizia a scrivere qui..."></textarea>
+
+  <!-- Box di conteggio (i caratteri non includono gli spazi) -->
+  <div class="counter" id="counter">0 parole - 0 caratteri</div>
+
+  <!-- Dropdown Menu migliorato (senza la voce "Guida") -->
+  <div id="dropdownMenu">
+    <ul>
+      <li><button id="toggleDark">Toggle Dark Mode</button></li>
+      <li><button id="saveDraft">Salva Bozza</button></li>
+      <li><button id="deleteDraft">Cancella Bozza</button></li>
+      <li><button id="downloadTxt">Scarica .txt</button></li>
+      <li><button id="openEmailPopover">Invia via Email</button></li>
+    </ul>
+  </div>
+
+  <!-- Email Popover -->
+  <div id="emailPopover">
+    <div class="email-container">
+      <span class="close-popover" id="closeEmailPopover">&times;</span>
+      <h3>Invia via Email</h3>
+      <form id="emailForm">
+        <label for="recipient">Destinatario:</label>
+        <input type="email" id="recipient" required>
+        <label for="subject">Oggetto:</label>
+        <input type="text" id="subject" required>
+        <div class="popover-buttons">
+          <button type="button" id="cancelEmailPopover">Annulla</button>
+          <button type="submit">Invia</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Guida -->
+  <div id="guideModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Guida</h3>
+      <p>Benvenuto nel sito creato da tommy437!</p>
+      <ul>
+        <li>Scrivi nel campo di testo: il conteggio delle parole e dei caratteri (senza contare gli spazi) si aggiorna in tempo reale.</li>
+        <li>Digita <strong>"dark"</strong> o <strong>"light"</strong> su una nuova riga e premi invio per cambiare la modalità del sito.</li>
+        <li>La prima riga non vuota diventa il titolo della pagina (sia nell’header che nel tag <code>&lt;title&gt;</code>).</li>
+        <li>Usa il menu per salvare la bozza, cancellarla, scaricarla o inviare via email.</li>
+        <li>Il sito è ottimizzato per dispositivi mobili.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Popup Toast per notifiche -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

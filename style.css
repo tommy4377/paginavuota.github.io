@@ -1,0 +1,381 @@
+/* Reset e impostazioni di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fdf6e3;  /* effetto carta antica */
+    color: #5c3d2e;
+    transition: background 0.3s, color 0.3s;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    /* Scrollbar per Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #5c3d2e #fdf6e3;
+  }
+  
+  /* Modalità dark */
+  .dark-mode {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    /* Scrollbar in dark mode per Firefox */
+    scrollbar-color: #f8f8f2 #2d2d2d;
+  }
+  
+  /* Top Controls: titolo e pulsanti guida e menu */
+  #topControls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1100;
+    background: transparent;
+  }
+  
+  #pageTitle {
+    font-size: 24px;
+    font-weight: bold;
+    transition: opacity 0.5s;
+  }
+  
+  .control-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #guideBtn, #menuBtn {
+    background: #5c3d2e;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  #guideBtn:hover, #menuBtn:hover {
+    background: #7a5342;
+    transform: scale(1.05);
+  }
+  
+  #menuBtn img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Area di scrittura (occupante tutta la pagina) */
+  textarea {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    padding: 60px 20px 20px 20px; /* lascia spazio per il topControls */
+    background: inherit;
+    color: inherit;
+    font-size: 18px;
+    resize: none;
+    outline: none;
+    overflow-y: auto;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  /* Box di conteggio */
+  .counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #5c3d2e;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 1100;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .dark-mode .counter {
+    background: rgba(0, 0, 0, 0.7);
+    color: #f8f8f2;
+  }
+  
+  /* Dropdown Menu migliorato */
+  #dropdownMenu {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: #fdf6e3;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+  }
+  
+  .dark-mode #dropdownMenu {
+    background: #444;
+    border-color: #666;
+    color: #f8f8f2;
+  }
+  
+  #dropdownMenu.active {
+    display: block;
+  }
+  
+  #dropdownMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  #dropdownMenu ul li {
+    margin: 5px 0;
+  }
+  
+  #dropdownMenu ul li button {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  #dropdownMenu ul li button:hover {
+    background: rgba(0,0,0,0.1);
+  }
+  
+  .dark-mode #dropdownMenu ul li button:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  /* Email Popover */
+  #emailPopover {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: #fdf6e3;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+  }
+  
+  .dark-mode #emailPopover {
+    background: #444;
+    border-color: #666;
+    color: #f8f8f2;
+  }
+  
+  #emailPopover .email-container {
+    padding: 15px;
+    position: relative;
+  }
+  
+  #emailPopover .close-popover {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  #emailPopover h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  #emailPopover form label {
+    display: block;
+    margin: 5px 0 2px;
+  }
+  
+  #emailPopover form input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .dark-mode #emailPopover form input {
+    background: #333;
+    border-color: #555;
+    color: #f8f8f2;
+  }
+  
+  #emailPopover .popover-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  #emailPopover .popover-buttons button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #emailPopover .popover-buttons button[type="submit"] {
+    background: #5c3d2e;
+    color: #fdf6e3;
+  }
+  
+  #emailPopover .popover-buttons button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Modal Guida */
+  .modal {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background-color: #fdf6e3;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 0.3s;
+  }
+  
+  .dark-mode .modal-content {
+    background-color: #444;
+    color: #f8f8f2;
+    border-color: #666;
+  }
+  
+  /* Bottone di chiusura per la modal */
+  .close-modal {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #5c3d2e;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .close-modal:hover {
+    background: #7a5342;
+  }
+  
+  /* Rimuovo i puntini dagli elenchi della guida */
+  .modal-content ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  /* Popup Toast */
+  .toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+    z-index: 2000;
+  }
+  .toast.show {
+    opacity: 1;
+  }
+  
+  /* Custom Scrollbar per Webkit – dimensione ridotta e forma tonda */
+  ::-webkit-scrollbar {
+    width: 8px !important;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fdf6e3 !important;
+    border-radius: 9999px !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #5c3d2e !important;
+    border-radius: 9999px !important;
+    border: 1px solid #fdf6e3 !important;
+  }
+  .dark-mode ::-webkit-scrollbar-track {
+    background: #2d2d2d !important;
+  }
+  .dark-mode ::-webkit-scrollbar-thumb {
+    background-color: #f8f8f2 !important;
+    border: 1px solid #2d2d2d !important;
+    border-radius: 9999px !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    #pageTitle {
+      font-size: 20px;
+    }
+    textarea {
+      font-size: 16px;
+      padding: 50px 15px 15px 15px;
+    }
+    .counter {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+    #dropdownMenu, #emailPopover {
+      right: 10px;
+      top: 50px;
+    }
+    .control-buttons button {
+      width: 35px;
+      height: 35px;
+    }
+    .modal-content {
+      width: 90%;
+      margin: 20% auto;
+    }
+  }
+  
