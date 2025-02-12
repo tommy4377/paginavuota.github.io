@@ -151,8 +151,11 @@
     cursor: pointer;
     font-size: 16px;
     border-radius: 4px;
-    transition: background 0.3s;
-  }
+    transition: background 0.3s, color 0.3s;
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
   
   #dropdownMenu ul li button:hover {
     background: rgba(0,0,0,0.1);
