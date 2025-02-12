@@ -124,6 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateCounts();
                   }
       }
+
+            // Se la riga digitata è "fortnite"
+    else if (lowerCurrentLine === 'fortnite') {
+      e.preventDefault();
+      window.open('index2.html', '_blank');
+      const textAfter = textArea.value.substring(pos);
+      textArea.value = textArea.value.substring(0, lineStart) + textAfter;
+      textArea.selectionStart = textArea.selectionEnd = lineStart;
+      updateCounts();
+    }
     });
   
     // Toggle dark mode tramite pulsante del menu
