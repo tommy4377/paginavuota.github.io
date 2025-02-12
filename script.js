@@ -113,6 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
           textArea.selectionStart = textArea.selectionEnd = lineStart;
           updateCounts();
         }
+
+        // Se la riga digitata è "rickroll"
+        else if (lowerCurrentLine === 'rickroll') {
+                    e.preventDefault();
+                    window.open('https://youtu.be/dQw4w9WgXcQ', '_blank');
+                    const textAfter = textArea.value.substring(pos);
+                    textArea.value = textArea.value.substring(0, lineStart) + textAfter;
+                    textArea.selectionStart = textArea.selectionEnd = lineStart;
+                    updateCounts();
+                  }
       }
     });
   
