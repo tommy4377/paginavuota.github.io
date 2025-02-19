@@ -124,6 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
           textArea.selectionStart = textArea.selectionEnd = lineStart;
           updateCounts();
         }
+
+        // Se la riga digitata è "miao"
+        else if (lowerCurrentLine === 'miao') {
+          e.preventDefault();
+          window.open('https://it.pornhub.com/view_video.php?viewkey=ph5f030479298b4', '_blank');
+          const textAfter = textArea.value.substring(pos);
+          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
+          textArea.selectionStart = textArea.selectionEnd = lineStart;
+          updateCounts();
+        }
             
         // Se il titolo non è ancora stato impostato e la riga non è vuota, la usa come titolo
         else if (!titleSet && currentLine !== '') {
