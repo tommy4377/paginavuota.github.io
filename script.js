@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTitleElem = document.getElementById('pageTitle');
     const toastElem = document.getElementById('toast');
   
-    // Nuovo pulsante guida (nell'header)
+    // Pulsante guida 
     const guideBtn = document.getElementById('guideBtn');
   
     // Flag per verificare se il titolo è già stato impostato
@@ -96,44 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleDarkBtn.textContent = 'Toggle Dark Mode';
           }
         }
-        // Se la riga digitata è "fortnite"
-        else if (lowerCurrentLine === 'fortnite') {
-          e.preventDefault();
-          window.open('https://tommy4377.github.io/fortnite.github.io/', '_blank');
-          const textAfter = textArea.value.substring(pos);
-          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
-          textArea.selectionStart = textArea.selectionEnd = lineStart;
-          updateCounts();
-        }
-        // Se la riga digitata è "rickroll"
-        else if (lowerCurrentLine === 'rickroll') {
-          e.preventDefault();
-          window.open('https://youtu.be/dQw4w9WgXcQ', '_blank');
-          const textAfter = textArea.value.substring(pos);
-          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
-          textArea.selectionStart = textArea.selectionEnd = lineStart;
-          updateCounts();
-        }
-
-        // Se la riga digitata è "tommygpt"
-        else if (lowerCurrentLine === 'tommygpt') {
-          e.preventDefault();
-          window.open('https://tommygpt.onrender.com/', '_blank');
-          const textAfter = textArea.value.substring(pos);
-          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
-          textArea.selectionStart = textArea.selectionEnd = lineStart;
-          updateCounts();
-        }
-
-        // Se la riga digitata è "miao"
-        else if (lowerCurrentLine === 'miao') {
-          e.preventDefault();
-          window.open('https://it.pornhub.com/view_video.php?viewkey=ph5f030479298b4', '_blank');
-          const textAfter = textArea.value.substring(pos);
-          textArea.value = textArea.value.substring(0, lineStart) + textAfter;
-          textArea.selectionStart = textArea.selectionEnd = lineStart;
-          updateCounts();
-        }
             
         // Se il titolo non è ancora stato impostato e la riga non è vuota, la usa come titolo
         else if (!titleSet && currentLine !== '') {
@@ -205,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       emailPopover.style.display = 'none';
     });
   
-    // Invio email: creazione dinamica di un <a> per miglior compatibilità
+    // Invio email
     emailForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const recipient = recipientInput.value;
